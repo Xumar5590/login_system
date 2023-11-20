@@ -1,6 +1,6 @@
 const express = require('express');
 const { login } = require('../controllers/auth');
-const { createUser } = require('../controllers/users');
+const { createUser, getAllUsers } = require('../controllers/users');
 const router = express.Router();
 
 router.route('/').get((req, res) => {
@@ -10,7 +10,6 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/signup').post(createUser);
-
-router.route('/login').get(login);
+router.route('/login').post(login);
 
 module.exports = router;
